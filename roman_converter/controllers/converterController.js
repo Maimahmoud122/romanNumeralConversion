@@ -1,19 +1,14 @@
 import converterService from '../services/servicesController.js';
 
 const convertToDecimal = async (req, res) => {
-  const { roman } = req.body;
-
-  if (!roman || typeof roman !== 'string') {
-    return res.status(400).json({ error: 'Please provide a Roman numeral as a string.' });
-  }
-
   try {
-    const result = await converterService.convertRomanToDecimal(roman);
+    const result = await converterService.convertRomanToDecimal(req.upperRoman);
     res.json(result);
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
 };
+
 
 const getAllConversions = async (req, res) => {
   try {
@@ -24,7 +19,7 @@ const getAllConversions = async (req, res) => {
   }
 };
 
-// ✅ NEW: Get single conversion by ID
+// ✅ Get single conversion by ID
 const getConversionById = async (req, res) => {
   const { id } = req.params;
   try {
@@ -41,5 +36,5 @@ const getConversionById = async (req, res) => {
 export default {
   convertToDecimal,
   getAllConversions,
-  getConversionById  // ✅ Add this
+  getConversionById  
 };
