@@ -47,7 +47,7 @@ async function fetchConversions() {
 
     data.conversions.forEach((item) => {
       const li = document.createElement('li');
-      li.textContent = ` ${item.input} → ${item.output}`;
+      li.textContent = `${item._id} ${item.input} → ${item.output}`;
       list.appendChild(li);
     });
   } catch (err) {
@@ -84,5 +84,90 @@ document.getElementById('getByIdForm').addEventListener('submit', async (e) => {
     singleResultDiv.style.color = 'red';
   }
 });
+// update conversion
+document.getElementById('UpdateConversion').addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const id = document.getElementById('updateConversionIdInput').value.trim();
+  const newValue = document.getElementById('conversionNewValue').value.trim();
+
+  try {
+    const response = await fetch(`http://localhost:8000/conversions/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ input: newValue }),
+    });
+
+    const data = await response.json();
+
+
+
+    if (response.ok) {
+      alert(`✅ Updated successfully: ${data.updatedConversion.input} → ${data.updatedConversion.output}`);
+      fetchConversions(); // Refresh list
+    } else {
+      alert(`❌ Update failed: ${data.error}`);
+    }
+  } catch (err) {
+    alert('❌ Error updating conversion: ' + err.message);
+  }
+});
+
+
+document.getElementById('deleteByIdForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const id = document.getElementById('deleteConversionIdInput').value.trim();
+
+  try {
+    const response = await fetch(`http://localhost:8000/conversions/${id}`, {
+      method: 'DELETE',
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      alert('✅ Deleted successfully.');
+      fetchConversions(); // Refresh list
+    } else {
+      alert(`❌ Delete failed: ${data.error}`);
+    }
+  } catch (err) {
+    alert('❌ Error deleting conversion: ' + err.message);
+  }
+});
+
+// Utility: Clear inputs of a form
+function clearForm(formId) {
+  const form = document.getElementById(formId);
+  if (!form) return;
+
+  const inputs = form.querySelectorAll('input');
+  inputs.forEach((input) => (input.value = ''));
+}
+
+// Get all form IDs
+const formIds = ['convertForm', 'getByIdForm', 'UpdateConversion', 'deleteByIdForm'];
+
+// Add input listener to each form
+formIds.forEach((activeFormId) => {
+  const form = document.getElementById(activeFormId);
+  if (!form) return;
+
+  const inputs = form.querySelectorAll('input');
+
+  inputs.forEach((input) => {
+    input.addEventListener('input', () => {
+      formIds
+        .filter((id) => id !== activeFormId) // skip current form
+        .forEach((otherFormId) => clearForm(otherFormId));
+    });
+  });
+});
+
+
+
 
 // ✅ Note: NO window.onload → list loads ONLY when you click "Refresh"

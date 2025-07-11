@@ -1,7 +1,8 @@
 import Conversion from '../models/Conversions.js';
 
 export default async function validateRoman(req, res, next) {
-  const { roman } = req.body;
+  const roman = req.body.roman || req.body.input;
+
 
   if (!roman || typeof roman !== 'string') {
     // Log failed attempt to DB

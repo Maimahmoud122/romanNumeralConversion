@@ -40,7 +40,7 @@ const updateConversion = async (req, res) => {
 
   try {
     const updated = await converterService.updateConversion(id, upperRoman);
-    res.json({ message: 'Conversion updated successfully.', updated });
+    res.json({updatedConversion: updated });
   } catch (err) {
     if (err.message === 'Conversion not found.') {
       return res.status(404).json({ error: err.message });
