@@ -49,19 +49,23 @@ const updateConversion = async (req, res) => {
   }
 };
 
+
 const deleteConversion = async (req, res) => {
   const { id } = req.params;
 
   try {
     const deleted = await converterService.deleteConversion(id);
+
+    if (!deleted) {
+      return res.status(404).json({ error: 'Conversion not found.' });
+    }
+
     res.json({ message: 'Conversion deleted successfully.', deleted });
   } catch (err) {
-    if (err.message === 'Conversion not found.') {
-      return res.status(404).json({ error: err.message });
-    }
     res.status(500).json({ error: 'Failed to delete conversion: ' + err.message });
   }
 };
+
 
 
 
