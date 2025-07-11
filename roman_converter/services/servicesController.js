@@ -26,8 +26,40 @@ const getConversionById = async (id) => {
   return Conversion.findById(id);
 };
 
+const updateConversion = async (id, upperRoman) => {
+  const decimal = toDecimal(upperRoman);
+
+  const updated = await Conversion.findByIdAndUpdate(
+    id,
+    {
+      input: upperRoman,
+      output: decimal,
+      timestamp: Date.now(), // optional: update timestamp
+    },
+    { new: true } // return the updated document
+  );
+
+  if (!updated) {
+    throw new Error('Conversion not found.');
+  }
+
+  return updated;
+};
+
+const deleteConversion = async (id) => {
+  return await Conversion.findByIdAndDelete(id);
+};
+
+
+
+
+
+
+
 export default {
   convertRomanToDecimal,
   getAllConversions,
-  getConversionById  // ✅ Add this
+  getConversionById, // ✅ Add this
+  updateConversion,
+  deleteConversion
 };
