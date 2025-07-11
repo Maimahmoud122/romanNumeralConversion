@@ -1,29 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Roman Numeral Converter</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
     <h1>Roman Numeral to Decimal Converter</h1>
 
+    <!-- Convert Roman Form -->
     <form id="convertForm">
-      <input type="text" id="romanInput" placeholder="Enter Roman numeral (e.g., XIV)" required>
+      <input
+        type="text"
+        id="romanInput"
+        placeholder="Enter Roman numeral (e.g., XIV)"
+        required
+      />
       <button type="submit">Convert</button>
     </form>
 
     <div id="result"></div>
 
-    <hr>
+    <hr />
 
     <h2>All Conversions</h2>
     <button onclick="fetchConversions()">Refresh List</button>
     <ul id="conversionList"></ul>
+
+    <hr />
+
+    <h2>Find Conversion by ID</h2>
+    <form id="getByIdForm">
+      <input
+        type="text"
+        id="conversionIdInput"
+        placeholder="Enter conversion ID"
+        required
+      />
+      <button type="submit">Get Conversion</button>
+    </form>
+    <div id="singleResult"></div>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
-

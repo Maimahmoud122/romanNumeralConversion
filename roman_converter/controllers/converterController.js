@@ -28,7 +28,7 @@ const getConversionById = async (req, res) => {
     if (!conversion) {
       return res.status(404).json({ error: 'Conversion not found' });
     }
-    res.json(conversion);
+    res.json({ conversion });;
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch conversion: ' + err.message });
   }
