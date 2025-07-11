@@ -30,25 +30,27 @@ This project is a simple full-stack application that converts **Roman numerals**
 
 ## 📁 Folder Structure
 
+```
 project-root/
-├── client/ # Frontend files
-│ └── index.html # Main UI page
-  └── style.css
-  └── script.js 
+├── client/                  # Frontend files
+│   ├── index.html           # Main UI page
+│   ├── style.css
+│   └── script.js
 ├── roman_converter/
-│ ├── controllers/ # API controller logic
-│ │ └── converterController.js
-│ ├── services/ # Business logic
-│ │ └── servicesController.js
-│ ├── models/ # Mongoose schema
-│ │ └── Conversions.js
-│ ├── middleware/ # Validation middleware
-│ │ └── validateRoman.js
-│ └── converter/ # Roman-to-decimal logic
-│ └── toDecimal.js
-├── index.js # Entry point & routes
+│   ├── controllers/         # API controller logic
+│   │   └── converterController.js
+│   ├── services/            # Business logic
+│   │   └── servicesController.js
+│   ├── models/              # Mongoose schema
+│   │   └── Conversions.js
+│   ├── middleware/          # Validation middleware
+│   │   └── validateRoman.js
+│   └── converter/           # Roman-to-decimal logic
+│       └── toDecimal.js
+├── index.js                 # Entry point & routes
 ├── package.json
 └── README.md
+```
 
 ## 📦 Installation & Setup
 
