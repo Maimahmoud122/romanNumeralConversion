@@ -30,7 +30,7 @@ This project is a simple full-stack application that converts **Roman numerals**
 
 ## 📁 Folder Structure
 
-```
+
 project-root/
 ├── client/                  # Frontend files
 │   ├── index.html           # Main UI page
@@ -50,7 +50,7 @@ project-root/
 ├── index.js                 # Entry point & routes
 ├── package.json
 └── README.md
-```
+
 
 ## 📦 Installation & Setup
 
