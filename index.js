@@ -13,7 +13,7 @@ import { fileURLToPath } from 'url';
 const app = express();
 const port = 8000;
 
-app.use(cors()); // Add this before routes
+app.use(cors()); 
 app.use(express.json());
 
 const __filename = fileURLToPath(import.meta.url);

@@ -9,7 +9,7 @@
   <div class="container">
     <h1>Roman Numeral to Decimal Converter</h1>
 
-    <!-- Convert Roman Form -->
+    <!-- ✅ Convert Roman Form -->
     <form id="convertForm">
       <input
         type="text"
@@ -19,7 +19,6 @@
       />
       <button type="submit">Convert</button>
     </form>
-
     <div id="result"></div>
 
     <hr />
@@ -30,6 +29,7 @@
 
     <hr />
 
+    <!-- ✅ Find by ID -->
     <h2>Find Conversion by ID</h2>
     <form id="getByIdForm">
       <input
@@ -40,8 +40,13 @@
       />
       <button type="submit">Get Conversion</button>
     </form>
-  <hr />
-  <h2>update conversion</h2>
+    <!-- ✅ Result for Find by ID -->
+    <div id="singleResult"></div>
+
+    <hr />
+
+    <!-- ✅ Update Conversion -->
+    <h2>Update Conversion</h2>
     <form id="UpdateConversion">
       <input
         type="text"
@@ -52,12 +57,17 @@
       <input
         type="text"
         id="conversionNewValue"
-        placeholder="Enter conversion New value"
+        placeholder="Enter new value"
         required
       />
       <button type="submit">Update Conversion</button>
     </form>
-    <hr>
+    <!-- ✅ Result for Update -->
+    <div id="updateResult"></div>
+
+    <hr />
+
+    <!-- ✅ Delete Conversion -->
     <h2>Delete Conversion by ID</h2>
     <form id="deleteByIdForm">
       <input
@@ -66,10 +76,11 @@
         placeholder="Enter conversion ID"
         required
       />
-      <button type="submit">delete Conversion</button>
+      <button type="submit">Delete Conversion</button>
     </form>
+    <!-- ✅ Result for Delete -->
+    <div id="deleteResult"></div>
 
-    <div id="singleResult"></div>
   </div>
 
   <script src="script.js"></script>

@@ -42,7 +42,7 @@ input[type="text"] {
   padding: 14px;
   font-size: 1rem;
   border: 2px solid #aaa;
-  border-radius: 8px; /* ✅ More rounded input */
+  border-radius: 8px; 
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
@@ -58,7 +58,7 @@ button {
   background: #108da3;
   color: #fffdf7;
   border: none;
-  border-radius: 8px; /* ✅ More rounded button */
+  border-radius: 8px; 
   cursor: pointer;
   transition: background 0.3s, transform 0.1s;
 }
